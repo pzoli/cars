@@ -7,27 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <base href="<?php echo REQUEST_ROOT; ?>"/>
+	<base href="{{ REQUEST_ROOT }}"/>
     <link rel="shortcut icon" href="public/img/favicon.png">
     <title>Car assist</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/css/my_styles.css">
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-	<base href="<?php echo REQUEST_ROOT; ?>"/>
 	<script src="public/js/manufacturer/manufacturer_edit.js"></script>
+	<script src="public/js/menu.js"></script>
 </head>
 
 <body>
-	<form>
+{{ include('menu.tpl') }}
+	<form id="manufacturer_create">
 		<h1>Manufacturer:</h1>
-		<label for="manufacturer_id">ID:</label>
-		<input id="manufacturer_id" class="form-control" type="text" disabled="true" />
+		<input id="manufacturer_id" class="form-control" type="hidden" value="{{ ID }}" />
 
 		<label for="manufacturer_name">Manufacturer name:</label>
-		<input id="manufacturer_name" class="form-control" type="text"/>
+		<input id="manufacturer_name" class="form-control" type="text" value="{{ MANUFACTURER_NAME }}"/>
+		<input type="submit" value="Send">
 	</form>
-		<a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back
+		<a href="{{ homepage_url }}">Back
 			to homepage</a>
 </body>
 

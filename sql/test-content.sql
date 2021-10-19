@@ -1,10 +1,10 @@
 INSERT INTO `manufacturer` (`name`) VALUES
 ('Opel'),
-('Mercedes');
+('Ford');
 
 INSERT INTO `model` (`name`, `manufacturer_id`) VALUES
-('Mondeo', 1),
-('Alfa', 2);
+('Astra', 1),
+('Mondeo', 2);
 
 INSERT INTO `car` (`model_id`, `chassis_number`) VALUES
 (1, '1357'),

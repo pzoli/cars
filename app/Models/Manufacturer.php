@@ -50,8 +50,8 @@ class Manufacturer
     public static function read(int $id)
     {
         $pdo = PDODBUtility::getInstance();
-        $car = $pdo->findById($id, "manufacturer");
-        return $car;
+        $manufacturer = $pdo->findById($id, "manufacturer");
+        return $manufacturer;
     }
     
     public static function update(int $id, array $data)

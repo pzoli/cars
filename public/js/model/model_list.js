@@ -5,13 +5,23 @@ $(document).ready(function() {
 			columns: [
 				{ visible: false, data: "id", title: "id" },
 				{ data: "name", title: "name" },
-				{ data: "manufacturer_id", title: "Manufacturer" }
+				{ data: "manufacturer_name", title: "Manufacturer" }
 			],
+			"createdRow": function(row, data, index) {
+					$(row).data('model_id',data["id"]);
+				
+			},
 			deferRender: true,
 			scrollY: 200,
 			scrollCollapse: true,
 			scroller: true
 		});
+		
+		$('#myTable tbody').on('click', 'tr', function() {
+			var data = $(this).data('model_id');
+			window.location.href = "model/" + data;
+		});
+
 	});
 
 });

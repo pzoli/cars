@@ -71,7 +71,7 @@ class Car
     public static function readAll()
     {
         $pdo = PDODBUtility::getInstance();
-        $cars = $pdo->findAll("car");
+        $cars = $pdo->exec("select c.*, m.name as model_name from car c join model m on c.model_id = m.id", null);
         $pdo = null;
         return $cars;
        
@@ -85,14 +85,16 @@ class Car
         return $car;
     }
     
-    public static function update(int $id, array $data)
+    public static function update(object $data)
     {
-        
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("update car set model_id = :model_id, chassis_number = :chassis_number where id = :id", (array)$data);
     }
     
     public static function delete(int $id)
     {
-        
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("delete from car where id = :id", array("id" => $id));
     }
     
 }

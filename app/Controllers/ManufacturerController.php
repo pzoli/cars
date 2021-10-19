@@ -10,7 +10,7 @@ class ManufacturerController
     // Show the product attributes based on the id.
 	public function showAction(int $id, RouteCollection $routes)
 	{
-        require_once APP_ROOT . '/views/manufacturer.php';
+        require_once APP_ROOT . '/views/manufacturer_edit.php';
 	}
 	
 	public function showAllAction(RouteCollection $routes)

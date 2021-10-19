@@ -71,6 +71,15 @@ Edit config.php
 
 Now you can open http://localhost/carassist in your browser.
 
+## Import SQL files
+
+From the sql subfolder import structure.sql and test-content.sql to your database:
+
+```
+mysql -u username -p database_name < structure.sql
+mysql -u username -p database_name < test-content.sql
+```
+
 ## References
 
 - https://github.com/gmaccario/simple-mvc-php-framework

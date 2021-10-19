@@ -11,14 +11,12 @@ $(document).ready(function() {
 		var $form = $("#car_create");
 		var $inputs = $form.find("input, select, button");
 
-        var data = $form.serializeObject();
-        data["id"] = $("#car_id").val();
-		var serializedData = JSON.stringify(data);
+		var serializedData = JSON.stringify($form.serializeObject());
 		$inputs.prop("disabled", true);
 		request = $.ajax({
 			contentType: 'application/json',
 			url: "rest/car",
-			type: "PUT",
+			type: "POST",
 			data: serializedData,
 			success: function(response) {
 				console.log(response);

@@ -18,7 +18,7 @@ class PDODBUtility extends Singleton
     
     public function exec($sql,$params) {
         $stmt = $this->conn->prepare($sql);
-        var_dump($params);
+        //var_dump($params);
         $res = $stmt->execute($params);
         if (!$res) {
             die("sql exception! ".$this->conn->errorInfo());
@@ -41,7 +41,7 @@ class PDODBUtility extends Singleton
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         $stmt = null;
-        return $rows;
+        return count($rows)==1 ? $rows[0] : null;
     }
     
     public function findAll($class) {

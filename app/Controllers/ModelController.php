@@ -10,7 +10,7 @@ class ModelController
     // Show the product attributes based on the id.
 	public function showAction(int $id, RouteCollection $routes)
 	{
-        require_once APP_ROOT . '/views/model.php';
+        require_once APP_ROOT . '/views/model_edit.php';
 	}
 	
 	public function showAllAction(RouteCollection $routes)

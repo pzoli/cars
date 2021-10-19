@@ -11,7 +11,7 @@ class Model
     public static function readAll()
     {
         $pdo = PDODBUtility::getInstance();
-        $cars = $pdo->findAll("model");
+        $cars = $pdo->exec("select m.*, f.name as manufacturer_name from model m join manufacturer f on m.manufacturer_id = f.id", null);
         return $cars;
        
     }
