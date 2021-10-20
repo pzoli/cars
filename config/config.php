@@ -1,8 +1,6 @@
 <?php
 //site name
-use Symfony\Component\HttpFoundation\Request;
-
-define('SITE_NAME', 'localhost');
+use App\Utils\RequestHolder;
 
 //App Root
 define('APP_ROOT', dirname(dirname(__FILE__)));
@@ -14,5 +12,5 @@ define('DB_USER', 'username');
 define('DB_PASS', 'password');
 define('DB_NAME', 'cars');
 
-$request = Request::createFromGlobals();
-define ('REQUEST_ROOT', $request->getSchemeAndHttpHost().URL_SUBFOLDER."/");
+$requestHolder = RequestHolder::getInstance();
+define ('REQUEST_ROOT', $requestHolder->getRequest()->getSchemeAndHttpHost().URL_SUBFOLDER."/");

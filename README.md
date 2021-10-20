@@ -62,7 +62,6 @@ sudo service apache2 restart
 
 Edit config.php
 
-- *SITE_NAME*: project site name
 - *URL_SUBFOLDER*: project request subfolder from root dir (equals with alias in cars.conf)
 - *DB_HOST*: database hostname
 - *DB_USER*: database user name
