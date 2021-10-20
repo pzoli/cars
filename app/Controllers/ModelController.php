@@ -4,7 +4,7 @@ namespace app\Controllers;
 
 use App\Models\Model;
 use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\HttpFoundation\Request;
+use App\Utils\RequestHolder;
 
 class ModelController
 {
@@ -33,14 +33,14 @@ class ModelController
 	}
 	
 	public function createNewModel(RouteCollection $routes) {
-	    $request = Request::createFromGlobals();
-	    $data = json_decode($request->getContent());
+	    $requestHolder = RequestHolder::getInstance();
+	    $data = json_decode($requestHolder->getRequest()->getContent());
 	    Model::create($data);
 	}
 	
 	public function updateModel(RouteCollection $routes) {
-	    $request = Request::createFromGlobals();
-	    $data = json_decode($request->getContent());
+	    $requestHolder = RequestHolder::getInstance();
+	    $data = json_decode($requestHolder->getRequest()->getContent());
 	    Model::update($data);
 	}
 	

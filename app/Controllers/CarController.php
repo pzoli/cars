@@ -4,8 +4,7 @@ namespace app\Controllers;
 
 use App\Models\Car;
 use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\HttpFoundation\Request;
-
+use App\Utils\RequestHolder;
 class CarController
 {
     // Show the product attributes based on the id.
@@ -32,14 +31,14 @@ class CarController
 	}
 	
 	public function createNewCar(RouteCollection $routes) {
-        $request = Request::createFromGlobals();
-        $data = json_decode($request->getContent());
+	    $requestHolder = RequestHolder::getInstance();
+	    $data = json_decode($requestHolder->getRequest()->getContent());
         Car::create($data);
     }
     
     public function updateCar(RouteCollection $routes) {
-        $request = Request::createFromGlobals();
-        $data = json_decode($request->getContent());
+        $requestHolder = RequestHolder::getInstance();
+        $data = json_decode($requestHolder->getRequest()->getContent());
         Car::update($data);
     }
 

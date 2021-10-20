@@ -84,7 +84,7 @@ Now you can open http://localhost/carassist in your browser.
 
 ## TODOs
 
-
+- Alert SQL exception on client side (at delete referenced manufacturer and model)
 
 ## References
 

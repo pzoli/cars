@@ -4,7 +4,7 @@ namespace app\Controllers;
 
 use App\Models\Manufacturer;
 use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\HttpFoundation\Request;
+use App\Utils\RequestHolder;
 
 class ManufacturerController
 {
@@ -33,14 +33,14 @@ class ManufacturerController
 	}
 	
 	public function createNewManufacturer(RouteCollection $routes) {
-	    $request = Request::createFromGlobals();
-	    $data = json_decode($request->getContent());
+	    $requestHolder = RequestHolder::getInstance();
+	    $data = json_decode($requestHolder->getRequest()->getContent());
 	    Manufacturer::create($data);
 	}
 	
 	public function updateManufacturer(RouteCollection $routes) {
-	    $request = Request::createFromGlobals();
-	    $data = json_decode($request->getContent());
+	    $requestHolder = RequestHolder::getInstance();
+	    $data = json_decode($requestHolder->getRequest()->getContent());
 	    Manufacturer::update($data);
 	}
 	
