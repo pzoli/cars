@@ -40,11 +40,11 @@ Alias /carassist /home/pzoli/git/cars
 
 Make destination folder /home/pzoli/git and clone git repository here. 
 
-(**node** if you choose different document root directory, please modify it at /etc/apache2/conf-enabled/cars.conf)
-
 ```
 git clone http://github.com/pzoli/cars.git
 ```
+
+(**node** if you choose different document root directory, please modify it at /etc/apache2/conf-enabled/cars.conf ,too)
 
 Enable rewrite mod for apache2
 
