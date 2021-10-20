@@ -21,20 +21,6 @@ Edit php.ini at /etc/php/7.4/apache2/php.ini uncomment (delete ';' from start of
 ;extension=pdo_mysql
 ```
 
-Make destination folder /home/pzoli/git and clone git repository here. 
-
-(**node** if you choose different document root directory, please modify it at /etc/apache2/conf-enabled/cars.conf)
-
-```
-git clone http://github.com/pzoli/cars.git
-```
-
-Enable rewrite mod for apache2
-
-```
-sudo a2enmod rewrite
-```
-
 Add /etc/apache2/conf-enabled/cars.conf
 
 Set "AllowOverride All" for enable .htaccess rewrite
@@ -50,6 +36,20 @@ Alias /carassist /home/pzoli/git/cars
     AllowOverride All
     Require all granted
 </Directory>
+```
+
+Make destination folder /home/pzoli/git and clone git repository here. 
+
+(**node** if you choose different document root directory, please modify it at /etc/apache2/conf-enabled/cars.conf)
+
+```
+git clone http://github.com/pzoli/cars.git
+```
+
+Enable rewrite mod for apache2
+
+```
+sudo a2enmod rewrite
 ```
 
 Restart apache2.
