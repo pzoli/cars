@@ -69,8 +69,6 @@ Edit config.php
 - *DB_PASS*: database password
 - *DB_NAME*: database name
 
-Now you can open http://localhost/carassist in your browser.
-
 ## Import SQL files
 
 From the sql subfolder import structure.sql and test-content.sql to your database:
@@ -79,6 +77,14 @@ From the sql subfolder import structure.sql and test-content.sql to your databas
 mysql -u username -p database_name < structure.sql
 mysql -u username -p database_name < test-content.sql
 ```
+
+## Start app
+
+Now you can open http://localhost/carassist in your browser.
+
+## TODOs
+
+
 
 ## References
 

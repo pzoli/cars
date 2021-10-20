@@ -13,9 +13,11 @@ $routes->add('car_edit', new Route(constant('URL_SUBFOLDER') . '/car/{id}', arra
 $routes->add('car_list', new Route(constant('URL_SUBFOLDER') . '/car', array('controller' => 'CarController', 'method'=>'showAllAction')));
 
 
+$routes->add('model_create', new Route(constant('URL_SUBFOLDER') . '/model/create', array('controller' => 'ModelController', 'method'=>'showCreateViewAction')));
 $routes->add('model_edit', new Route(constant('URL_SUBFOLDER') . '/model/{id}', array('controller' => 'ModelController', 'method'=>'showAction'), array('id' => '[0-9]+')));
 $routes->add('model_list', new Route(constant('URL_SUBFOLDER') . '/model', array('controller' => 'ModelController', 'method'=>'showAllAction')));
 
+$routes->add('manufacturer_create', new Route(constant('URL_SUBFOLDER') . '/manufacturer/create', array('controller' => 'ManufacturerController', 'method'=>'showCreateViewAction')));
 $routes->add('manufacturer_edit', new Route(constant('URL_SUBFOLDER') . '/manufacturer/{id}', array('controller' => 'ManufacturerController', 'method'=>'showAction'), array('id' => '[0-9]+')));
 $routes->add('manufacturer_list', new Route(constant('URL_SUBFOLDER') . '/manufacturer', array('controller' => 'ManufacturerController', 'method'=>'showAllAction')));
 

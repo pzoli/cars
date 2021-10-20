@@ -7,25 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <base href="{{ request_root }}"/>
+    <base href="{{ REQUEST_ROOT }}"/>
     <link rel="shortcut icon" href="public/img/favicon.png">
     <title>Car Assist</title>
-
+    
     {{ include('list_headers.tpl') }}
 
-	<script src="public/js/menu.js"></script>
-    <script src="public/js/car/car_list.js"></script>
+	<script src="public/js/menu.js"></script>        
+    <script src="public/js/model/model_list.js"></script>
 </head>
-
 <body>
-	{{ include('menu.tpl') }}
-		<h1>Cars:</h1>
+{{ include('menu.tpl') }}
+	<section>
+		<h1>Model:</h1>
         <table id="myTable" class="display nowrap" style="width:100%">
-        </table>
-        <button onclick="window.location.href='car/create'" class="ui-button">Create new Car</button>
-        <a href="{{ homepage_url }}">Back to homepage</a>
-	
-
+        </table>		
+        <button onclick="window.location.href='model/create'" class="ui-button">Create new Model</button>
+        <a href="{{ HOMEPAGE_URL }}">Back to homepage</a>
+	<section>
 </body>
-
 </html>

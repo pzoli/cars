@@ -1,15 +1,13 @@
 var request;
-
 $(document).ready(function() {
+	manufacturer_select2_init();
 
-	model_select2_init();
-
-	$("#car_create").submit(function(event) {
+	$("#model_create").submit(function(event) {
 		event.preventDefault();
 		if (request) {
 			request.abort();
 		}
-		var $form = $("#car_create");
+		var $form = $("#model_create");
 		var $inputs = $form.find("input, select, button");
 		var data = $form.serializeObject();
 		if (!checkData(data)) {
@@ -19,13 +17,13 @@ $(document).ready(function() {
 		$inputs.prop("disabled", true);
 		request = $.ajax({
 			contentType: 'application/json',
-			url: "rest/car",
+			url: "rest/model",
 			type: "POST",
 			data: serializedData,
 			success: function(response) {
 				console.log(response);
 				if (response == "") {
-					window.location.href = "car";
+					window.location.href = "model";
 				}
 			},
 			error: function(jqXHR, textStatus, errorThrown) {

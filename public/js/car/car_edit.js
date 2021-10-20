@@ -1,7 +1,7 @@
 var request;
 $(document).ready(function() {
 
-	init_model();
+	model_select2_init();
 
 	$("#car_create").submit(function(event) {
 		event.preventDefault();
@@ -13,6 +13,9 @@ $(document).ready(function() {
 
         var data = $form.serializeObject();
         data["id"] = $("#car_id").val();
+		if (!checkData(data)) {
+			return;
+		}
 		var serializedData = JSON.stringify(data);
 		$inputs.prop("disabled", true);
 		request = $.ajax({

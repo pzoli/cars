@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/my_styles.css">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -21,14 +22,15 @@
 		var modelOption = $("<option selected='selected'></option>").val({{ MODEL_ID }}).text("{{ MODEL_NAME }}");
 	</script>
 	<script src="public/js/my_jquery_extensions.js"></script>    
-    <script src="public/js/car/car_editors_init.js"></script>
+    <script src="public/js/car/model_select2_init.js"></script>
+    <script src="public/js/car/car_check_data.js"></script>
 	<script src="public/js/car/car_edit.js"></script>
 	<script src="public/js/menu.js"></script>
 </head>
 
 <body>
 {{ include('menu.tpl') }}
-	<h1>My Car:</h1>
+	<h1>Modify Car:</h1>
 	<form id="car_create">
 		<input id="car_id" name="id" type="hidden" disabled="true" value="{{ ID }}"/>
 		

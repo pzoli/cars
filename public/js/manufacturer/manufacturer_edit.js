@@ -1,3 +1,4 @@
+var request;
 $(document).ready( function () {
 	$("#manufacturer_create").submit(function(event) {
 		event.preventDefault();
@@ -9,6 +10,9 @@ $(document).ready( function () {
 
         var data = $form.serializeObject();
         data["id"] = $("#manufacturer_id").val();
+		if (!checkData(data)) {
+			return;
+		}
 		var serializedData = JSON.stringify(data);
 		$inputs.prop("disabled", true);
 		request = $.ajax({

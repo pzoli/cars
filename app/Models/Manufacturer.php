@@ -39,6 +39,12 @@ class Manufacturer
         $this->name = $name;
     }
 
+    public static function create(object $data)
+    {
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("insert into manufacturer (name) values (:name)", (array)$data);
+    }
+    
     public static function readAll()
     {
         $pdo = PDODBUtility::getInstance();
@@ -54,14 +60,16 @@ class Manufacturer
         return $manufacturer;
     }
     
-    public static function update(int $id, array $data)
+    public static function update(object $data)
     {
-        
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("update manufacturer set name = :name where id = :id", (array)$data);
     }
     
     public static function delete(int $id)
     {
-        
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("delete from manufacturer where id = :id", array("id" => $id));
     }
     
 }

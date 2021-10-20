@@ -1,15 +1,11 @@
 var request;
-
-$(document).ready(function() {
-
-	model_select2_init();
-
-	$("#car_create").submit(function(event) {
+$(document).ready( function () {
+	$("#manufacturer_create").submit(function(event) {
 		event.preventDefault();
 		if (request) {
 			request.abort();
 		}
-		var $form = $("#car_create");
+		var $form = $("#manufacturer_create");
 		var $inputs = $form.find("input, select, button");
 		var data = $form.serializeObject();
 		if (!checkData(data)) {
@@ -19,13 +15,13 @@ $(document).ready(function() {
 		$inputs.prop("disabled", true);
 		request = $.ajax({
 			contentType: 'application/json',
-			url: "rest/car",
+			url: "rest/manufacturer",
 			type: "POST",
 			data: serializedData,
 			success: function(response) {
 				console.log(response);
 				if (response == "") {
-					window.location.href = "car";
+					window.location.href = "manufacturer";
 				}
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
@@ -35,5 +31,5 @@ $(document).ready(function() {
 			}
 		});
 	});
-
-});
+    
+} );

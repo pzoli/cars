@@ -17,18 +17,16 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="public/js/my_jquery_extensions.js"></script>
 	<script src="public/js/manufacturer/manufacturer_check_data.js"></script>
-	<script src="public/js/manufacturer/manufacturer_edit.js"></script>
+	<script src="public/js/manufacturer/manufacturer_create.js"></script>
 	<script src="public/js/menu.js"></script>
 </head>
 
 <body>
 {{ include('menu.tpl') }}
 	<form id="manufacturer_create">
-		<h1>Manufacturer:</h1>
-		<input id="manufacturer_id" class="form-control" type="hidden" value="{{ ID }}" />
-
+		<h1>Create Manufacturer:</h1>
 		<label for="manufacturer_name">Manufacturer name:</label>
-		<input id="manufacturer_name" name="name" class="form-control" type="text" value="{{ MANUFACTURER_NAME }}"/>
+		<input id="manufacturer_name" name="name" class="form-control" type="text"/>
 		<input type="submit" value="Send" class="ui-button">
 	</form>
 		<a href="{{ MANUFACTURER_LIST_URL }}">Back

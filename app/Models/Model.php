@@ -8,6 +8,60 @@ class Model
     protected $name;
     protected $manufacturer_id;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getManufacturerId()
+    {
+        return $this->manufacturer_id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param mixed $manufacturer_id
+     */
+    public function setManufacturerId($manufacturer_id)
+    {
+        $this->manufacturer_id = $manufacturer_id;
+    }
+
+    public static function create(object $data)
+    {
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("insert into model (name, manufacturer_id) values (:name, :manufacturer_id)", (array)$data);
+    }
+    
     public static function readAll()
     {
         $pdo = PDODBUtility::getInstance();
@@ -23,14 +77,16 @@ class Model
         return $car;
     }
     
-    public static function update(int $id, array $data)
+    public static function update(object $data)
     {
-        
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("update model set manufacturer_id = :manufacturer_id, name = :name where id = :id", (array)$data);
     }
     
     public static function delete(int $id)
     {
-        
+        $pdo = PDODBUtility::getInstance();
+        $pdo->exec("delete from model where id = :id", array("id" => $id));
     }
     
 }

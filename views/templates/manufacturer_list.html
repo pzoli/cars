@@ -10,19 +10,18 @@
     <base href="{{ request_root }}"/>
     <link rel="shortcut icon" href="public/img/favicon.png">
     <title>Car Assist</title>
-
     {{ include('list_headers.tpl') }}
 
 	<script src="public/js/menu.js"></script>
-    <script src="public/js/car/car_list.js"></script>
+    <script src="public/js/manufacturer/manufacturer_list.js"></script>
 </head>
 
 <body>
 	{{ include('menu.tpl') }}
-		<h1>Cars:</h1>
+		<h1>Manufacturers:</h1>
         <table id="myTable" class="display nowrap" style="width:100%">
         </table>
-        <button onclick="window.location.href='car/create'" class="ui-button">Create new Car</button>
+        <button onclick="window.location.href='manufacturer/create'" class="ui-button">Create new Manufacturer</button>
         <a href="{{ homepage_url }}">Back to homepage</a>
 	
 

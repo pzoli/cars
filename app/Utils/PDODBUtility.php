@@ -21,7 +21,7 @@ class PDODBUtility extends Singleton
         //var_dump($params);
         $res = $stmt->execute($params);
         if (!$res) {
-            die("sql exception! ".$this->conn->errorInfo());
+            die("SQL exception!");
         }
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         

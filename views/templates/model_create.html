@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="{{ REQUEST_ROOT }}"/>
+    <link rel="shortcut icon" href="public/img/favicon.png">
+    <title>Car assist</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="public/css/my_styles.css">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+	<script src="public/js/my_jquery_extensions.js"></script>
+	<script src="public/js/model/model_check_data.js"></script>    
+	<script src="public/js/model/manufacturer_select2_init.js"></script>
+	<script src="public/js/model/model_create.js"></script>
+	<script src="public/js/menu.js"></script>
+</head>
+
+<body>
+{{ include('menu.tpl') }}
+	<form id="model_create">
+		<h1>Model:</h1>
+
+		<label for="model_name">Model name:</label>
+		<input id="model_name" name="name" class="form-control" type="text"/>
+		
+		<label for="manufacturer_id">Manufacturer:</label>
+		<select id="manufacturer_id" name="manufacturer_id" class="js-example-data-ajax form-control">
+		</select>
+		<input type="submit" value="Send" class="ui-button">
+	</form>
+	<a href="{{ MODEL_LIST_URL }}">Back
+		to Model list</a>
+</body>
+
+</html>

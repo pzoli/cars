@@ -1,25 +1,39 @@
+var request;
 $(document).ready(function() {
-	$('#model_manufacturer').select2({
-		ajax: {
-			url: "rest/manufacturer",
-			dataType: 'json',
-			type: "POST",
-			data: function(term) {
-				return {
-					term: term
-				};
-			},
-			processResults: function(data) {
-				return {
-					results: $.map(data, function(item) {
-						return {
-							text: item.name,
-							id: item.id,
-						}
-					})
-				};
-			}
+	manufacturer_select2_init();
+
+	$("#model_create").submit(function(event) {
+		event.preventDefault();
+		if (request) {
+			request.abort();
 		}
+		var $form = $("#model_create");
+		var $inputs = $form.find("input, select, button");
+
+		var data = $form.serializeObject();
+		data["id"] = $("#model_id").val();
+		if (!checkData(data)) {
+			return;
+		}
+		var serializedData = JSON.stringify(data);
+		$inputs.prop("disabled", true);
+		request = $.ajax({
+			contentType: 'application/json',
+			url: "rest/model",
+			type: "PUT",
+			data: serializedData,
+			success: function(response) {
+				console.log(response);
+				if (response == "") {
+					window.location.href = "model";
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log(textStatus, errorThrown);
+				alert(textStatus);
+				$inputs.prop("disabled", false);
+			}
+		});
 	});
 
 });

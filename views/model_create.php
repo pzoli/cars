@@ -8,15 +8,12 @@ $loader = new FilesystemLoader(APP_ROOT . '/views/templates');
 $twig = new Environment($loader);
 
 $pdo = PDODBUtility::getInstance();
-$manufacturer = $pdo->findById($id, "manufacturer");
-$template = $twig->load("manufacturer_edit.html");
+$template = $twig->load("model_create.html");
 
 echo $template->render([
     'REQUEST_ROOT' => REQUEST_ROOT,
-    'MANUFACTURER_LIST_URL' => $routes->get('manufacturer_list')
-        ->getPath(),
-    'ID' => $id,
-    'MANUFACTURER_NAME' => $manufacturer["name"]
+    'MODEL_LIST_URL' => $routes->get('model_list')
+        ->getPath()
 ]);
 
 ?>
