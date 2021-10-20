@@ -87,4 +87,5 @@ Now you can open http://localhost/carassist in your browser.
 
 ## References
 
+- https://github.com/pzoli/cars (**note** this project)
 - https://github.com/gmaccario/simple-mvc-php-framework
