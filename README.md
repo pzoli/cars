@@ -84,8 +84,9 @@ Now you can open http://localhost/carassist in your browser.
 ## TODOs
 
 - Alert SQL exception on client side (at delete referenced manufacturer and model)
+- Routes import from external file (YaML or JSON)
 
 ## References
 
-- https://github.com/pzoli/cars (**note** this project)
+- https://github.com/pzoli/cars (**this project**)
 - https://github.com/gmaccario/simple-mvc-php-framework
