@@ -36,3 +36,7 @@ $routes->add('restapi.model_list', new Route(constant('URL_SUBFOLDER') . '/rest/
 $routes->add('restapi.model_create',new Route(constant('URL_SUBFOLDER') . '/rest/model', array('controller' => 'ModelController', 'method'=>'createNewModel'), array(), array(), '', array(), 'POST'));
 $routes->add('restapi.model_update',new Route(constant('URL_SUBFOLDER') . '/rest/model', array('controller' => 'ModelController', 'method'=>'updateModel'), array(), array(), '', array(), 'PUT'));
 $routes->add('restapi.model_delete',new Route(constant('URL_SUBFOLDER') . '/rest/model/{id}', array('controller' => 'ModelController', 'method'=>'deleteModel'), array('id' => '[0-9]+'), array(), '', array(), 'DELETE'));
+
+$routes->add('restapi.model_filterbyname',new Route(constant('URL_SUBFOLDER') . '/rest/model/name/{pattern}', array('controller' => 'ModelController', 'method'=>'findModelByNameFilter'), array(), array(), '', array(), 'GET'));
+$routes->add('restapi.manufacturer_filterbyname',new Route(constant('URL_SUBFOLDER') . '/rest/manufacturer/name/{pattern}', array('controller' => 'ManufacturerController', 'method'=>'findModelByNameFilter'), array(), array(), '', array(), 'GET'));
+

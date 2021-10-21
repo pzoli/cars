@@ -48,8 +48,8 @@ class Manufacturer
     public static function readAll()
     {
         $pdo = PDODBUtility::getInstance();
-        $cars = $pdo->findAll("manufacturer");
-        return $cars;
+        $manufacturers = $pdo->findAll("manufacturer");
+        return $manufacturers;
        
     }
     
@@ -70,6 +70,12 @@ class Manufacturer
     {
         $pdo = PDODBUtility::getInstance();
         $pdo->exec("delete from manufacturer where id = :id", array("id" => $id));
+    }
+
+    public static function findModelByNameFilter($pattern) {
+        $pdo = PDODBUtility::getInstance();
+        $models = $pdo->exec("select * from manufacturer where name like :pattern", ["pattern"=>"%".$pattern."%"]);
+        return $models;    
     }
     
 }

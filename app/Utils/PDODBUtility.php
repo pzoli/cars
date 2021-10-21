@@ -18,6 +18,7 @@ class PDODBUtility extends Singleton
     
     public function exec($sql,$params) {
         $stmt = $this->conn->prepare($sql);
+        //var_dump($sql);
         //var_dump($params);
         $res = $stmt->execute($params);
         if (!$res) {

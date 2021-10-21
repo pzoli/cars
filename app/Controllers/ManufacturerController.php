@@ -48,5 +48,12 @@ class ManufacturerController
 	    Manufacturer::delete($id);
 	}
 	
+
+	public function findModelByNameFilter($pattern,RouteCollection $routes) {
+	    $manufacturers = Manufacturer::findModelByNameFilter($pattern);
+	    //var_dump($models);
+	    header('Content-Type: application/json; charset=utf-8');
+	    echo json_encode($manufacturers);
+	}
 	
 }

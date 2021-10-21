@@ -48,4 +48,11 @@ class ModelController
 	    Model::delete($id);
 	}
 	
+	public function findModelByNameFilter($pattern,RouteCollection $routes) {
+	    $models = Model::findModelByNameFilter($pattern);
+	    //var_dump($models);
+	    header('Content-Type: application/json; charset=utf-8');
+	    echo json_encode($models);
+	}
+	
 }

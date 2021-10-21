@@ -85,7 +85,6 @@ Now you can open http://localhost/carassist in your browser.
 
 - Alert SQL exception on client side (at delete referenced manufacturer and model)
 - Routes import from external file (YaML or JSON)
-- Select2 search for name with ajax (recuire new route)
 
 ## References
 

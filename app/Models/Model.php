@@ -65,16 +65,16 @@ class Model
     public static function readAll()
     {
         $pdo = PDODBUtility::getInstance();
-        $cars = $pdo->exec("select m.*, f.name as manufacturer_name from model m join manufacturer f on m.manufacturer_id = f.id", null);
-        return $cars;
+        $models = $pdo->exec("select m.*, f.name as manufacturer_name from model m join manufacturer f on m.manufacturer_id = f.id", null);
+        return $models;
        
     }
     
     public static function read(int $id)
     {
         $pdo = PDODBUtility::getInstance();
-        $car = $pdo->findById($id, "model");
-        return $car;
+        $model = $pdo->findById($id, "model");
+        return $model;
     }
     
     public static function update(object $data)
@@ -87,6 +87,13 @@ class Model
     {
         $pdo = PDODBUtility::getInstance();
         $pdo->exec("delete from model where id = :id", array("id" => $id));
+    }
+    
+    public static function findModelByNameFilter($pattern) {
+        $pdo = PDODBUtility::getInstance();
+        $models = $pdo->exec("select m.*, f.name as manufacturer_name from model m join manufacturer f on m.manufacturer_id = f.id where m.name like :pattern or f.name like :pattern", ["pattern"=>"%".$pattern."%"]);
+        return $models;
+        
     }
     
 }
