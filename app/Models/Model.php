@@ -91,7 +91,7 @@ class Model
     
     public static function findModelByNameFilter($pattern) {
         $pdo = PDODBUtility::getInstance();
-        $models = $pdo->exec("select m.*, f.name as manufacturer_name from model m join manufacturer f on m.manufacturer_id = f.id where m.name like :pattern or f.name like :pattern", ["pattern"=>"%".$pattern."%"]);
+        $models = $pdo->exec("select m.*, f.name as manufacturer_name from model m join manufacturer f on m.manufacturer_id = f.id where concat(f.name, ' ', m.name) like :pattern", ["pattern"=>"%".$pattern."%"]);
         return $models;
         
     }
